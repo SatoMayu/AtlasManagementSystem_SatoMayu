@@ -24,24 +24,27 @@ class RegisterFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'over_name' => 'required|string|max:255',
-            'under_name' => 'required|string|max:255',
-            'over_name_kana' => 'required|string|max:255',
-            'under_name_kana' => 'required|string|max:255',
-            'mail_address' => 'required|string|email|max:255|unique:users',
+            'over_name' => 'required|string|max:10',
+            'under_name' => 'required|string|max:10',
+            'over_name_kana' => 'required|string|regex:/\A[ァ-ヴー]+\z/u|max:30',
+            'under_name_kana' => 'required|string|regex:/\A[ァ-ヴー]+\z/u|max:30',
+            'mail_address' => 'required|string|email|max:100|unique:users',
             'sex' => 'required',
-            'old_year' => 'required',
-            'password' => 'required|string|min:4|confirmed',
+            'old_year' => 'required|after:2000-01-01',
+            'old_monty' => 'required',
+            'old_day' => 'required',
+            'role' => 'required',
+            'password' => 'required|string|min:8|max:30|confirmed',
         ];
     }
 
-    public function messages()
-    {
-        return [
-            'over_name.required' => '入力必須',
-            'mail.required' => '入力必須',
-            'password.required' => '入力必須',
-            'password.min' => '4文字以上入力してください'
-        ];
-    }
+    // public function messages()
+    // {
+    //     return [
+    //         'over_name.required' => '入力必須',
+    //         'mail.required' => '入力必須',
+    //         'password.required' => '入力必須',
+    //         'password.min' => '4文字以上入力してください'
+    //     ];
+    // }
 }
