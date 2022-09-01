@@ -20,6 +20,10 @@ Route::group(['middleware' => ['guest']], function(){
     });
 });
 
+// ↓↓middlewareによるアクセス制限
+// Route::middleware(['AdminMiddleware'])->group(function(){
+//  アドミン以外見られたくないルート設定
+// });
 Route::group(['middleware' => 'auth'], function(){
     Route::namespace('Authenticated')->group(function(){
         Route::namespace('Top')->group(function(){
