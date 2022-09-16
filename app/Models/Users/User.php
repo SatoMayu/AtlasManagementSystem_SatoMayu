@@ -78,8 +78,30 @@ class User extends Authenticatable
     public function is_Like($post_id){
         return Like::where('like_user_id', Auth::id())->where('like_post_id', $post_id)->first(['likes.id']);
     }
+    // 9/8　is_Likeがなにを示しているのか確認
 
     public function likePostId(){
         return Like::where('like_user_id', Auth::id());
+    }
+
+
+    // ここから追加記述↓↓
+    // is_Likeを使って、すでにlikeしたか確認後、「いいね」する
+    public function like($post_id){
+        if($this->is_Like($post_id)){
+            // もしすでに「いいね」していたら何もしない
+        }else {
+            $this->likes()->attach($post_id);
+        }
+    }
+
+    // is_Likeを使って、すでにlikeしたか確認後、していたら解除する
+    public function unlike($post_id){
+        if($this->is_Like($post_id)){
+            // もしすでに「いいね」していたら消す
+            $this->likes()->detach($post_id);
+        }else {
+            # code...
+        }
     }
 }

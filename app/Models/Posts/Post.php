@@ -19,6 +19,13 @@ class Post extends Model
         return $this->belongsTo('App\Models\Users\User');
     }
 
+    // 9/8追記↓↓
+    public function likes(){
+        return $this->hasMany('App\Models\Posts\Like', 'likes', 'like_user_id', 'like_post_id');
+    }
+    // 9/8追記↑↑
+
+
     public function postComments(){
         return $this->hasMany('App\Models\Posts\PostComment');
     }
