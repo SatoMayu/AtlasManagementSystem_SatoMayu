@@ -19,9 +19,10 @@ class UsersTableSeeder extends Seeder
             'under_name_kana' => 'ノビタ',
             'mail_address' => 'nobita@nnn',
             'sex' => '1',
+            'password' => bcrypt('password'),
             'birth_day' => '1994-08-07',
             'role' => '4',
-            'password' => bcrypt('password'),
+
         ]);
     }
 }
