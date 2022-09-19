@@ -15,10 +15,11 @@
           </div>
           <div>
             @if(Auth::user()->is_Like($post->id))
-            <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}"></span></p>
+              <!-- ↑↑$post->idで該当する値をUser.phpの関数is_like()へ送るよ -->
+            <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}">{{$like->likeCounts($like)}}</span></p>
             @else
             <p class="m-0"><i class="fas fa-heart like_btn" post_id="{{ $post->id }}"></i><span
-            class="like_counts{{ $post->id}}"></span></p>
+            class="like_counts{{ $post->id }}">{{$like->likeCounts($like)}}</span></p>
             @endif
             <!-- post_idとclass="like_counts確認 -->
           </div>

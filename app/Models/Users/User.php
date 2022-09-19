@@ -78,7 +78,8 @@ class User extends Authenticatable
     public function is_Like($post_id){
         return Like::where('like_user_id', Auth::id())->where('like_post_id', $post_id)->first(['likes.id']);
     }
-    // 9/8　is_Likeがなにを示しているのか確認
+    // 9/8 is_Likeがなにを示しているのか要確認
+    // 9/17 posts.bladeから送られてきた$post->idで該当する値を$post_idとする→is_like()の中で使用して目的の情報を取得する
 
     public function likePostId(){
         return Like::where('like_user_id', Auth::id());
