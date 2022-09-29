@@ -30,9 +30,12 @@ class Post extends Model
         return $this->hasMany('App\Models\Posts\PostComment');
     }
 
+    // 9/29追記↓↓
     public function subCategories(){
-        // リレーションの定義
+        // リレーションの定義  多対多
+        return $this->belongsToMany('App\Models\Categories\SubCategory');
     }
+    // 9/29追記↑↑
 
     // コメント数
     public function commentCounts($post_id){
