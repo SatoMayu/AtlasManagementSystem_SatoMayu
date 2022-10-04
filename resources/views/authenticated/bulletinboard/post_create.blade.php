@@ -7,13 +7,12 @@
       <p class="mb-0">カテゴリー</p>
       <select class="w-100" form="postCreate" name="post_category_id">
         @foreach($main_categories as $main_category)
-        <optgroup label="{{ $main_category->main_category }}">
-
-        </optgroup>
+            <optgroup label="{{ $main_category->main_category }}"></optgroup>
         <!-- サブカテゴリー表示 -->
-          @foreach($sub_categories as $sub_category)
-              <option value="">{{ $sub_category->sub_category }}</option>
-          @endforeach
+                @foreach($main_category->subCategories as $sub_category)
+                <!-- ↑↑($sub_categories as $sub_category)としてしまうと全てのメインカテゴリーのオプションに全てのサブカテゴリーが表示されてしまう -->
+                    <option value="">{{ $sub_category->sub_category }}</option>
+                @endforeach
         </optgroup>
         @endforeach
       </select>
@@ -51,12 +50,13 @@
       <form action="{{ route('sub.category.create') }}" method="post" id="subCategoryRequest">{{ csrf_field() }}
         <div class="">
           <p class="m-0">サブカテゴリー</p>
-          <select type="text" class="w-100" name="sub_category_name" form="subCategoryRequest">
+          <select type="text" class="w-100" name="main_category_id" form="subCategoryRequest">
+            <option>---</option>
             @foreach($main_categories as $main_category)
-              <option value="">{{ $main_category->main_category }}</option>
+              <option value="{{$main_category->id}}">{{ $main_category->main_category }}</option>
             @endforeach
           </select>
-          <input type="hidden" name="main_category_id" form="subCategoryRequest" value="{{ $main_category->id }}">
+
           <input type="text" class="w-100" name="sub_category_name" form="subCategoryRequest">
           <input type="submit" value="追加" class="w-100 btn btn-primary p-0" form="subCategoryRequest">
         </div>
