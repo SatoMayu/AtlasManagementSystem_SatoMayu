@@ -24,7 +24,7 @@ class MainCategoryFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'main_category_name' => 'required|string|max:100'
+            'main_category_name' => 'required|string|max:100|unique:main_categories,main_category'
         ];
     }
 
@@ -32,6 +32,7 @@ class MainCategoryFormRequest extends FormRequest
     {
         return [
             'main_category_name.required' => '入力必須',
+            'main_category_name.unique' => 'すでに登録されています',
             'main_category_name.string' => '文字列で入力してください'
         ];
     }

@@ -25,7 +25,7 @@ class SubCategoryFormRequest extends FormRequest
     {
         return [
             'main_category_id' => 'required',
-            'sub_category_name' => 'required|string|max:100'
+            'sub_category_name' => 'required|string|max:100|unique:sub_categories,sub_category'
         ];
     }
 
@@ -33,6 +33,7 @@ class SubCategoryFormRequest extends FormRequest
     {
         return [
             'main_category_id.required' => 'メインカテゴリーを選択してください',
+            'sub_category_name.unique' => 'すでに登録されています',
             'sub_category_name.required' => '入力必須'
         ];
     }
