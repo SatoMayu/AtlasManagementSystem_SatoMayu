@@ -24,15 +24,15 @@ class MainCategoryFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'main_category' => 'required|string|max:100'
+            'main_category_name' => 'required|string|max:100'
         ];
     }
 
     public function messages()
     {
         return [
-            'main_category.required' => '入力必須',
-            'main_category.string' => '文字列で入力してください'
+            'main_category_name.required' => '入力必須',
+            'main_category_name.string' => '文字列で入力してください'
         ];
     }
 }
