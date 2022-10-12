@@ -173,7 +173,14 @@ li{
   font-size:12px;
 }
 
-/* 掲示板　カテゴリー */
+/* 掲示板 投稿 */
+.main_category{
+  text-decoration: none;
+  color: #9E9E9E;
+  background-color: #e6e6e6;
+}
+
+/* 掲示板 カテゴリー */
 .category_area{
   background:#FFF;
   border-radius:10px;
