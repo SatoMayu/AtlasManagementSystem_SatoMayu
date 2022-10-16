@@ -71,7 +71,8 @@ class User extends Authenticatable
     }
 
     public function subjects(){
-        return $this->hasMany('App\Models\Users\Subjects');// リレーションの定義
+        // 多対多
+        return $this->belongsToMany('App\Models\Users\Subjects');// リレーションの定義
     }
 
     // いいねしているかどうか
