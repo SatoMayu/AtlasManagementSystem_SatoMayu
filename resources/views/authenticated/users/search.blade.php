@@ -44,6 +44,7 @@
       <div>
         @if($user->role == 4)
         <span>選択科目 :</span>
+        <span>{{ $test->subjects->id }}</span>
         @endif
       </div>
     </div>
@@ -88,6 +89,18 @@
           </div>
           <div class="selected_engineer">
             <label>選択科目</label>
+            <div>
+              <input type="checkbox" id="chk01" name="chk01">
+              <label for="chk01">国語</label>
+            </div>
+            <div>
+              <input type="checkbox" id="chk01" name="chk01">
+              <label for="chk01">国語</label>
+            </div>
+            <div>
+              <input type="checkbox" id="chk01" name="chk01">
+              <label for="chk01">国語</label>
+            </div>
           </div>
         </div>
       </div>
