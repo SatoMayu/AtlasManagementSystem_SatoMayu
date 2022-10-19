@@ -150,6 +150,7 @@
           </select>
           <label style="font-size:13px">日</label>
           <span>{{$errors->first('data')}}</span>
+          <span>{{$errors->first('old_year')}}</span>
           <span>{{$errors->first('old_month')}}</span>
           <span>{{$errors->first('old_day')}}</span>
         </div>
