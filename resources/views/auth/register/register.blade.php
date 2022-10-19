@@ -149,7 +149,7 @@
             <option value="31">31</option>
           </select>
           <label style="font-size:13px">日</label>
-          <span>{{$errors->first('old_year')}}</span>
+          <span>{{$errors->first('data')}}</span>
           <span>{{$errors->first('old_month')}}</span>
           <span>{{$errors->first('old_day')}}</span>
         </div>
@@ -179,14 +179,16 @@
           <div class="border-bottom border-primary">
             <input type="password" class="border-0 w-100 password" name="password">
           </div>
+          @if($errors->first('password'))
           <span>{{$errors->first('password')}}</span>
+          @endif
         </div>
         <div class="mt-3">
           <label class="d-block m-0" style="font-size:13px">確認用パスワード</label>
           <div class="border-bottom border-primary">
-            <input type="password" class="border-0 w-100 password_confirmation" name="password">
+            <input type="password" class="border-0 w-100 password_confirmation" name="password_confirmation">
           </div>
-          {{$errors->first('password_confirm')}}
+
         </div>
         <div class="mt-5 text-right">
           <input type="submit" class="btn btn-primary register_btn" disable value="新規登録" onclick="return confirm('登録してよろしいですか？')">

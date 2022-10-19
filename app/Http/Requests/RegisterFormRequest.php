@@ -16,6 +16,19 @@ class RegisterFormRequest extends FormRequest
         return true;
     }
 
+public function getValidatorInstance()
+{
+    $old_year = $this->input('old_year');
+    $old_month = $this->input('old_month');
+    $old_day = $this->input('old_day');
+    $data = $old_year . '-' . $old_month . '-' . $old_day;
+
+    $this->merge([
+        'data' => $data,
+    ]);
+    return parent::getValidatorInstance();
+}
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -29,22 +42,30 @@ class RegisterFormRequest extends FormRequest
             'over_name_kana' => 'required|string|regex:/\A[ァ-ヴー]+\z/u|max:30',
             'under_name_kana' => 'required|string|regex:/\A[ァ-ヴー]+\z/u|max:30',
             'mail_address' => 'required|string|email|max:100|unique:users',
-            'sex' => 'required',
-            'old_year' => 'required|after:2000-01-01',
-            'old_monty' => 'required',
+            'sex' => 'required','in:1,2,3',
+            'old_year' => 'required',
+            'old_month' => 'required',
             'old_day' => 'required',
-            'role' => 'required',
+            'data' => 'date|before:today|after:1999-12-31',
+            'role' => 'required','in:1,2,3,4',
             'password' => 'required|string|min:8|max:30|confirmed',
+            // 'password_confirmation' => 'required|string|min:8|max:30'
         ];
     }
 
-    // public function messages()
-    // {
-    //     return [
-    //         'over_name.required' => '入力必須',
-    //         'mail.required' => '入力必須',
-    //         'password.required' => '入力必須',
-    //         'password.min' => '4文字以上入力してください'
-    //     ];
-    // }
+    public function messages()
+    {
+        return [
+            'over_name.required' => '入力必須',
+            'mail.required' => '入力必須',
+            'password.required' => '入力必須',
+            'password.confirmed' => 'パスワードが一致しません',
+            'password.min' => '4文字以上入力してください',
+            'data.date' => '正しい日付を入力してください',
+            'data.before' => '2000年以降を選択してください',
+            'data.after' => '2000年以降を選択してください',
+
+
+        ];
+    }
 }
