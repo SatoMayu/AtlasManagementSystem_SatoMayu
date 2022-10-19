@@ -60,12 +60,14 @@ class RegisterController extends Controller
 
     public function registerPost(RegisterFormRequest $request)
     {
+        // ↓↓beginTransaction()…commit()までの処理が全て正常に通ったら、全ての処理が実行される。一部の処理が失敗した場合、成功した一部だけが処理されるようなことを防ぐ。失敗時点でrollback()で戻される。
         DB::beginTransaction();
         try{
             $old_year = $request->old_year;
             $old_month = $request->old_month;
             $old_day = $request->old_day;
             $data = $old_year . '-' . $old_month . '-' . $old_day;
+            // ↓↓strtotime()…()内のデータが有効な日付かどうか判定
             $birth_day = date('Y-m-d', strtotime($data));
             $subjects = $request->subject;
 

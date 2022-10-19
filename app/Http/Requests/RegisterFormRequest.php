@@ -15,12 +15,13 @@ class RegisterFormRequest extends FormRequest
     {
         return true;
     }
-
+// ↓↓生年月日のバリデーション…『年』『月』『日』が別々のデータで送られてくる＆バリデーションをかけたい際は、『年』『月』『日』をひとつのデータとして適当な変数でまとめる必要がある。今回はdataがまとめたデータの変数。RegisterController参照。
 public function getValidatorInstance()
 {
     $old_year = $this->input('old_year');
     $old_month = $this->input('old_month');
     $old_day = $this->input('old_day');
+    // ↓↓上で取ってきた$old_yearと$old_monthと$old_dayをハイフンで繋げる
     $data = $old_year . '-' . $old_month . '-' . $old_day;
 
     $this->merge([
@@ -46,10 +47,11 @@ public function getValidatorInstance()
             'old_year' => 'required',
             'old_month' => 'required',
             'old_day' => 'required',
+            // ↓↓上のgetValidatortInstanceメソッドで定義した変数$data
+            // ↓↓バリデーションルールのdateは日付文字列かどうか判定
             'data' => 'date|before:today|after:1999-12-31',
             'role' => 'required','in:1,2,3,4',
-            'password' => 'required|string|min:8|max:30|confirmed',
-            // 'password_confirmation' => 'required|string|min:8|max:30'
+            'password' => 'required|string|min:8|max:30|confirmed'
         ];
     }
 
