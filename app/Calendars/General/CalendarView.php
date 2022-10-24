@@ -8,6 +8,7 @@ class CalendarView{
 
   private $carbon;
   function __construct($date){
+    // Carbon…日付操作ライブラリ
     $this->carbon = new Carbon($date);
   }
 
@@ -41,7 +42,7 @@ class CalendarView{
         $toDay = $this->carbon->copy()->format("Y-m-d");
 
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-          $html[] = '<td class="calendar-td">';
+          $html[] = '<td class="calendar-td past-day">';
         }else{
           $html[] = '<td class="calendar-td '.$day->getClassName().'">';
         }
