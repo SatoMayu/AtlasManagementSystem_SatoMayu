@@ -60,7 +60,7 @@ class CalendarView{
           }
           // ↓↓『予約済み』かつ過去なら、参加した部を表示
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px"></p>';
+            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'.$reservePart.'参加</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           // ↓↓『予約済み』かつ過去でなければ、キャンセルボタンを表示
           }else{
@@ -70,9 +70,11 @@ class CalendarView{
         // ↓↓『未予約』かつ過去なら、受付終了
         }else if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
           $html[] = '<p>受付終了</p>';
+          $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
         // ↓↓『未予約』かつ過去でなければ、プルダウン表示
         }else{
           $html[] = $day->selectPart($day->everyDay());
+
         }
         $html[] = $day->getDate();
         $html[] = '</td>';
