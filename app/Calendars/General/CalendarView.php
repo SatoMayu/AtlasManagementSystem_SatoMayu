@@ -60,11 +60,11 @@ class CalendarView{
           }
           // ↓↓『予約済み』かつ過去なら、参加した部を表示
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'.$reservePart.'<br>参加</p>';
+            $html[] = '<p class="m-auto p-0 w-75  style="font-size:12px">'.$reservePart.'<br>参加</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           // ↓↓『予約済み』かつ過去でなければ、キャンセルボタンを表示
           }else{
-            $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" data-toggle="modal" data-target="#exampleModalCenter" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
+            $html[] = '<button type="submit" class="btn btn-danger p-0 w-75 delete-modal-open" delete_day="'.$day->authReserveDate($day->everyDay())->first()->setting_reserve.'" delete_part="'.$reservePart.'" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
         // ↓↓『未予約』かつ過去なら、受付終了

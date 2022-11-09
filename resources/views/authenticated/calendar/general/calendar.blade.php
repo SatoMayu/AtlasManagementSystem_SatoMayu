@@ -11,37 +11,18 @@
       </div>
     </div>
 
-    <!-- キャンセルボタンのモーダル -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered " role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <!-- 投稿編集フォーム開始 -->
-          <div class="modal-body">
-            <form action="" method="POST">
-              @csrf
-              <!-- 変更した投稿内容の受け渡し -->
-              <p>予約日</p>
-              <p>時間</p>
-              <p>上記の予約をキャンセルしてもよろしいですか？</p>
-              <!-- 変更した投稿のidの受け渡し -->
-              <!-- <input type="hidden" name="" class="modal_id" placeholder="aiu"value=""></input>-->
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-              </form>
-          </div>
-
-        </div>
+    <!-- キャンセルボタンのモーダル開始 -->
+    <div class="modal delete-modal">
+      <div class="modal__bg delete-modal-close"></div>
+      <div class="modal__content">
+        <p>予約日:<span class ="modal_delete_day"></span></p>
+        <p>予約時間:<span class ="modal_delete_part"></span></p>
+        <p>上記の予約をキャンセルしてもよろしいですか？</p>
+        @csrf
+        <a class="delete-modal-close" href="">閉じる</a>
       </div>
     </div>
-
+    <!-- キャンセルボタンのモーダル終了 -->
 
     <div class="text-right w-75 m-auto">
       <input type="submit" class="btn btn-primary" value="予約する" form="reserveParts">
