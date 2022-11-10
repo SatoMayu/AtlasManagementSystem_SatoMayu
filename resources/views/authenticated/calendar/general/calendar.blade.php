@@ -19,7 +19,11 @@
         <p>予約時間:<span class ="modal_delete_part"></span></p>
         <p>上記の予約をキャンセルしてもよろしいですか？</p>
         @csrf
-        <a class="delete-modal-close" href="">閉じる</a>
+        <button class="delete-modal-close btn btn-primary d-block" href="">閉じる</button>
+        <input type="hidden" class="modal_deleteDay" name="delete_Day" form="deleteParts" value="">
+        <input type="hidden" class="modal_deletePart" name="delete_Part" form="deleteParts" value="">
+        <input type="submit" class="btn btn-danger d-inline-block" value="キャンセル" form="deleteParts">
+        {{ csrf_field() }}
       </div>
     </div>
     <!-- キャンセルボタンのモーダル終了 -->
