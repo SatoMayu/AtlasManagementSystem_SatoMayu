@@ -22,10 +22,10 @@ class CalendarsController extends Controller
     public function reserveDetail(Request $request){
         $date = $request->input('date');
         $part = $request->input('part');
-        $id= $request->input('id');
-        dd($date);
+        // $id = $request->input('id');
+        
         $reservePersons = ReserveSettings::with('users')->where('setting_reserve', $date)->where('setting_part', $part)->get();
-        // dd($reservePersons);
+
         return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons', 'date', 'part'));
     }
 

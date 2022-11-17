@@ -31,19 +31,29 @@ class CalendarWeekDay{
 
     $html[] = '<div class="text-left">';
     if($one_part){
-      $html[] ='<form action="/test" method="get" id="detail">';
-      $html[] ='<input type="hidden" name="date" value="'.$one_part->setting_reserve.'" form="reserveDetail"></input>';
-      $html[] ='<input type="hidden" name="part" value="'.$one_part->setting_part.'" form="reserveDetail"></input>';
-      $html[] ='<input type="hidden" name="id" value="'.$one_part->id.'" form="reserveDetail"></input>';
-      $html[] ='<button type="submit" form="detail">1部</button>';
+      $html[] ='<form action="/detail" method="get">';
+      $html[] ='<input type="hidden" name="date" value="'.$one_part->setting_reserve.'"></input>';
+      $html[] ='<input type="hidden" name="part" value="'.$one_part->setting_part.'"></input>';
+      // $html[] ='<input type="hidden" name="id" value="'.$one_part->id.'"></input>';
+      $html[] ='<button type="submit">1部</button>';
       $html[] ='</form>';
       $html[] ='<p class="day_part m-0 pt-1">'.$one_part->users()->count().'</p>';
     }
     if($two_part){
-      $html[] = '<p class="day_part m-0 pt-1"><a href="">2部</a>'.$two_part->users()->count().'</p>';
+      $html[] ='<form action="/detail" method="get">';
+      $html[] ='<input type="hidden" name="date" value="'.$two_part->setting_reserve.'"></input>';
+      $html[] ='<input type="hidden" name="part" value="'.$two_part->setting_part.'"></input>';
+      $html[] ='<button type="submit">2部</button>';
+      $html[] ='</form>';
+      $html[] ='<p class="day_part m-0 pt-1">'.$two_part->users()->count().'</p>';
     }
     if($three_part){
-      $html[] = '<p class="day_part m-0 pt-1"><a href="">3部</a>'.$three_part->users()->count().'</p>';
+      $html[] ='<form action="/detail" method="get">';
+      $html[] ='<input type="hidden" name="date" value="'.$three_part->setting_reserve.'"></input>';
+      $html[] ='<input type="hidden" name="part" value="'.$three_part->setting_part.'"></input>';
+      $html[] ='<button type="submit">3部</button>';
+      $html[] ='</form>';
+      $html[] ='<p class="day_part m-0 pt-1">'.$three_part->users()->count().'</p>';
     }
     $html[] = '</div>';
 
