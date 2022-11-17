@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function(){
             Route::namespace('Admin')->group(function(){
                 Route::get('/calendar/{user_id}/admin', 'CalendarsController@show')->name('calendar.admin.show');
                 // Route::get('/calendar/{id}/{data}/{part?}', 'CalendarsController@reserveDetail')->name('calendar.admin.detail');
-                Route::get('/calendar/detail/admin', 'CalendarsController@reserveDetail');
+                Route::get('/test', 'CalendarsController@reserveDetail');
                 Route::get('/setting/{user_id}/admin', 'CalendarsController@reserveSettings')->name('calendar.admin.setting');
                 Route::post('/setting/update/admin', 'CalendarsController@updateSettings')->name('calendar.admin.update');
             });

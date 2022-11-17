@@ -31,8 +31,13 @@ class CalendarWeekDay{
 
     $html[] = '<div class="text-left">';
     if($one_part){
-      $html[] ='<p class="day_part m-0 pt-1"><a href="">1部</a>'.$one_part->users()->count().'</p>';
-      $html[] ='<form action="" method="get" ><input type="hidden" name="testDate" value="'.$three_part->setting_reserve.'" form="reserveDetail"></input></form>';
+      $html[] ='<form action="/test" method="get" id="detail">';
+      $html[] ='<input type="hidden" name="date" value="'.$one_part->setting_reserve.'" form="reserveDetail"></input>';
+      $html[] ='<input type="hidden" name="part" value="'.$one_part->setting_part.'" form="reserveDetail"></input>';
+      $html[] ='<input type="hidden" name="id" value="'.$one_part->id.'" form="reserveDetail"></input>';
+      $html[] ='<button type="submit" form="detail">1部</button>';
+      $html[] ='</form>';
+      $html[] ='<p class="day_part m-0 pt-1">'.$one_part->users()->count().'</p>';
     }
     if($two_part){
       $html[] = '<p class="day_part m-0 pt-1"><a href="">2部</a>'.$two_part->users()->count().'</p>';

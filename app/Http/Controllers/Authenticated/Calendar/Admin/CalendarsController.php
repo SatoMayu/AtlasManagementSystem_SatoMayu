@@ -19,13 +19,15 @@ class CalendarsController extends Controller
         return view('authenticated.calendar.admin.calendar', compact('calendar'));
     }
 
-    // public function reserveDetail(Request $request){
-    //     $date = $request->testDate;
-    //     dd($date);
-    //     $reservePersons = ReserveSettings::with('users')->where('setting_reserve', $date)->where('setting_part', $part)->get();
-    //     // dd($reservePersons);
-    //     return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons', 'date', 'part'));
-    // }
+    public function reserveDetail(Request $request){
+        $date = $request->input('date');
+        $part = $request->input('part');
+        $id= $request->input('id');
+        dd($date);
+        $reservePersons = ReserveSettings::with('users')->where('setting_reserve', $date)->where('setting_part', $part)->get();
+        // dd($reservePersons);
+        return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons', 'date', 'part'));
+    }
 
     public function reserveSettings(){
         $calendar = new CalendarSettingView(time());
