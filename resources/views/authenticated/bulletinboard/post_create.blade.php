@@ -11,7 +11,7 @@
         <!-- サブカテゴリー表示 -->
                 @foreach($main_category->subCategories as $sub_category)
                 <!-- ↑↑($sub_categories as $sub_category)としてしまうと全てのメインカテゴリーのオプションに全てのサブカテゴリーが表示されてしまう -->
-                    <option value="">{{ $sub_category->sub_category }}</option>
+                    <option value="{{ $sub_category->id }}">{{ $sub_category->sub_category }}</option>
                 @endforeach
         </optgroup>
         @endforeach
