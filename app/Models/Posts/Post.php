@@ -33,7 +33,11 @@ class Post extends Model
     // 9/29追記↓↓
     public function subCategories(){
         // リレーションの定義  多対多
-        return $this->belongsToMany('App\Models\Categories\SubCategory');
+        // 第１引数：リレーション先のモデル名
+        // 第2引数：リレーション先のテーブル名
+        // 第3引数：自モデルの主キー
+        // 第4引数：相手モデルの主キー
+        return $this->belongsToMany('App\Models\Categories\SubCategory','post_sub_categories','post_id','sub_category_id');
     }
     // 9/29追記↑↑
 
