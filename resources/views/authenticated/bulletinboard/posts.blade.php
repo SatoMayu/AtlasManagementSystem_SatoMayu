@@ -8,10 +8,10 @@
     <div class="post_area border w-75 m-auto p-3">
       <p><span>{{ $post->user->over_name }}</span><span class="ml-3">{{ $post->user->under_name }}</span>さん</p>
       <p><a href="{{ route('post.detail', ['id' => $post->id]) }}">{{ $post->post_title }}</a></p>
-      @foreach($post->SubCategories as $sub_category)
-      <p>{{ $sub_category->sub_category }}</p>
-      @endforeach
       <div class="post_bottom_area d-flex">
+      @foreach($post->SubCategories as $sub_category)
+      <i class="category_box">{{ $sub_category->sub_category }}</i>
+      @endforeach
         <div class="d-flex post_status">
           <div class="mr-5">
             <i class="fa fa-comment"></i><span class="">{{ $post_comment->commentCounts($post->id)->count() }}</span>
@@ -33,13 +33,15 @@
   </div>
   <div class="other_area border w-25">
     <div class="border m-4">
-      <div class="post_button"><a href="{{ route('post.input') }}">投稿</a></div>
-      <div class="search_box">
+      <div class="post_btn"><a href="{{ route('post.input') }}">投稿</a></div>
+      <div class="post_search_area">
         <input type="text" class="keyword_box" placeholder="キーワードを検索" name="keyword" form="postSearchRequest">
-        <input type="submit" class="search_button" value="検索" form="postSearchRequest">
+        <input type="submit" class="search_btn" value="検索" form="postSearchRequest">
       </div>
-      <input type="submit" name="like_posts" class="category_btn" value="いいねした投稿" form="postSearchRequest">
-      <input type="submit" name="my_posts" class="category_btn" value="自分の投稿" form="postSearchRequest">
+      <div class="filter-btn_area">
+        <input type="submit" name="like_posts" class="category_btn like_post" value="いいねした投稿" form="postSearchRequest">
+        <input type="submit" name="my_posts" class="category_btn my_post" value="自分の投稿" form="postSearchRequest">
+      </div>
       <ul>
         @foreach($categories as $category)
         <li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}<span></li>

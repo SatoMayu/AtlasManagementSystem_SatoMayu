@@ -31,29 +31,35 @@ class CalendarWeekDay{
 
     $html[] = '<div class="text-left">';
     if($one_part){
+      $html[] ='<div class="test">';
       $html[] ='<form action="/detail" method="get">';
       $html[] ='<input type="hidden" name="date" value="'.$one_part->setting_reserve.'"></input>';
       $html[] ='<input type="hidden" name="part" value="'.$one_part->setting_part.'"></input>';
       // $html[] ='<input type="hidden" name="id" value="'.$one_part->id.'"></input>';
-      $html[] ='<button type="submit">1部</button>';
+      $html[] ='<button type="submit" class="part_btn">1部</button>';
       $html[] ='</form>';
       $html[] ='<p class="day_part m-0 pt-1">'.$one_part->users()->count().'</p>';
+      $html[] ='</div>';
     }
     if($two_part){
+      $html[] ='<div class="test">';
       $html[] ='<form action="/detail" method="get">';
       $html[] ='<input type="hidden" name="date" value="'.$two_part->setting_reserve.'"></input>';
       $html[] ='<input type="hidden" name="part" value="'.$two_part->setting_part.'"></input>';
-      $html[] ='<button type="submit">2部</button>';
+      $html[] ='<button type="submit" class="part_btn">2部</button>';
       $html[] ='</form>';
       $html[] ='<p class="day_part m-0 pt-1">'.$two_part->users()->count().'</p>';
+      $html[] ='</div>';
     }
     if($three_part){
+      $html[] ='<div class="test">';
       $html[] ='<form action="/detail" method="get">';
       $html[] ='<input type="hidden" name="date" value="'.$three_part->setting_reserve.'"></input>';
       $html[] ='<input type="hidden" name="part" value="'.$three_part->setting_part.'"></input>';
-      $html[] ='<button type="submit">3部</button>';
+      $html[] ='<button type="submit" class="part_btn">3部</button>';
       $html[] ='</form>';
       $html[] ='<p class="day_part m-0 pt-1">'.$three_part->users()->count().'</p>';
+      $html[] ='</div>';
     }
     $html[] = '</div>';
 
