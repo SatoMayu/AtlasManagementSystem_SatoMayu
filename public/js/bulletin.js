@@ -1,5 +1,10 @@
 $(function () {
   $('.main_categories').click(function () {
+    $(this).toggleClass('is-open');
+    $(this).siblings('.category_list').toggleClass('is-open');
+  });
+
+  $('.main_categories').click(function () {
     var category_id = $(this).attr('category_id');
     $('.category_num' + category_id).slideToggle();
   });

@@ -75,8 +75,17 @@ a:hover{
 }
 .adjust-table-btn{
   width:70%;
+  justify-items: flex-end;
 }
-
+/* 投稿一覧 */
+.post_title a{
+  color:#212529;
+  text-decoration: none;
+  font-weight: bold;
+}
+.post_title a:hover{
+  color: #03aad2;
+}
 /* モーダル */
 .modal{
     display: none;
@@ -101,7 +110,7 @@ a:hover{
     width: 60%;
 }
 
-/* 掲示板 */
+/* 掲示板 検索エリア*/
 .post_btn {
   display: flex;
   text-decoration: none;
@@ -142,7 +151,7 @@ a:hover{
 }
 .keyword_box{
   border-radius: 5px 0 0 5px;
-  outline: none;
+  border: 1px solid #dee2e6;
 }
 .search_btn{
   width: 100%;
@@ -291,6 +300,7 @@ a:hover{
   flex-basis: 50%;
   height: 44px;
   background-color: #e084a1;
+  margin-right: 3px;
 }
 .like_post:hover{
   background-color: #dc5883;
@@ -300,10 +310,46 @@ a:hover{
   flex-basis: 50%;
   height: 44px;
   background-color: #edbc5a;
+  margin-left: 3px;
 }
 .my_post:hover{
   background-color: #EDAE2C;
   transition-duration: .5s;
+}
+/* アコーディオン */
+.main_categories{
+  position: relative;
+  font-weight: bold;
+}
+.main_categories::after{
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  content: "";
+  display: block;
+  top: 40%;
+  left: 90%;
+  width: 15px;
+  height: 15px;
+  transform: translate(-50%, -40%) rotate(135deg);
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  transition: 0.3s ease;
+}
+.main_categories.is-open::after{
+  top: 60%;
+  transform: translate(-50%, -60%) rotate(-45deg);
+}
+.category_list{
+  display: none;
+  /* background-color: #002972;
+  opacity: 0;
+  transition: .3s ease-in-out; */
+}
+.category_list.is-open {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 .main_categories span,
 .sub_categories li input{
@@ -364,11 +410,14 @@ a:hover{
 /* スクール予約確認 */
 .part_btn{
   border: none;
+  outline: none;
   background-color: transparent;
   cursor: pointer;
 }
 .part_btn:hover{
   text-decoration-line: underline;
+  color: #03AAD2;
+  outline: none;
 }
 /* ↓パートと人数横並び */
 .test{
@@ -376,15 +425,19 @@ a:hover{
   justify-content: space-around;
   /* margin: 0 10px 0 10px; */
 }
-/* .my_calendar{
-  width: 100%;
-  padding-top: 100px;
-  background-color: #FFF;
-} */
-/* .my_table{
+.white_area{
   background-color: #fff;
-  padding: 50px 0;
-} */
+  border-radius: 5px;
+  width: 75%;
+  height: 95%;
+  margin: auto;
+}
+/* ユーザー検索 */
+.free_word{
+  border-radius: 5px;
+  border: 1px solid #dee2e6;
+  
+}
 /*
 スクール予約確認のカレンダーの大きさ
 いいね、コメント右寄りに

@@ -1,8 +1,10 @@
 @extends('layouts.sidebar')
 
 @section('content')
-<p>ユーザー検索</p>
-<div class="search_content w-100 border d-flex">
+<div class="search_container">
+
+  <p class="">ユーザー検索</p>
+  <div class="search_content w-100 border d-flex">
   <div class="reserve_users_area">
     @foreach($users as $user)
     <div class="border one_person">
@@ -10,9 +12,9 @@
         <span>ID : </span><span>{{ $user->id }}</span>
       </div>
       <div><span>名前 : </span>
-        <a href="{{ route('user.profile', ['id' => $user->id]) }}">
-          <span>{{ $user->over_name }}</span>
-          <span>{{ $user->under_name }}</span>
+      <a href="{{ route('user.profile', ['id' => $user->id]) }}">
+        <span>{{ $user->over_name }}</span>
+        <span>{{ $user->under_name }}</span>
         </a>
       </div>
       <div>
@@ -43,10 +45,10 @@
       </div>
       <div>
         @if($user->role == 4)
-            <span>選択科目 :</span>
-            @foreach($user->subjects as $subject)
-            <span>{{ $subject->subject }}</span>
-            @endforeach
+        <span>選択科目 :</span>
+        @foreach($user->subjects as $subject)
+        <span>{{ $subject->subject }}</span>
+        @endforeach
         @endif
       </div>
     </div>
@@ -93,10 +95,10 @@
             <label>選択科目</label>
             <div>
               @foreach($subjects as $subject)
-                <div>
-                  <input type="checkbox" form="userSearchRequest" name="subject[]" value="{{ $subject->id }}">
-                  <label>{{ $subject->subject }}</label>
-                </div>
+              <div>
+                <input type="checkbox" form="userSearchRequest" name="subject[]" value="{{ $subject->id }}">
+                <label>{{ $subject->subject }}</label>
+              </div>
               @endforeach
             </div>
 
@@ -112,5 +114,6 @@
     </div>
     <form action="{{ route('user.show') }}" method="get" id="userSearchRequest"></form>
   </div>
+</div>
 </div>
 @endsection
