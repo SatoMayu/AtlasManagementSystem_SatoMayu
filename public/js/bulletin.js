@@ -1,17 +1,10 @@
 $(function () {
+  // ↓アコーディオンメニュー
   $('.main_categories').click(function () {
-    $(this).next().toggleClass('.category_list');
-    // $(this).siblings('.category_list').toggleClass('is-open');
+    $(this).next().toggleClass('category_list');
+    $(this).toggleClass('is-open');
   });
-  // $('.accordion').on('click', function () {
-  //   $('.accordion_inner').slideToggle();
-  //   var subcategory_id = $(this).attr('subcategory_id');
-  //   $('.category_num' + subcategory_id).slideToggle();
-  // });
-  // $("#accordion dt").on("click", function () {
-  //   $(this).next().slideToggle();
-  //   $(this).toggleClass("active");
-  // });
+
   $('.main_categories').click(function () {
     var category_id = $(this).attr('category_id');
     $('.category_num' + category_id).slideToggle();

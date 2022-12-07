@@ -340,21 +340,14 @@ a:hover{
   top: 60%;
   transform: translate(-50%, -60%) rotate(-45deg);
 }
-/* #main_categories dt.active::after{
-  top: 60%;
-  transform: translate(-50%, -60%) rotate(-45deg);
-} */
+
 .category_list{
   display: none;
-  /* background-color: #002972;
+  background-color: #002972;
   opacity: 0;
-  transition: .3s ease-in-out; */
+  transition: .5s ease-in-out;
 }
-.category_list.is-open {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
+
 .main_categories span,
 .sub_categories li input{
   list-style:none;
@@ -412,9 +405,15 @@ a:hover{
 }
 .label {
   font-size: 15px;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
 }
-.search_conditions span{
+.addition{
+  margin-top: 0.5rem;
+}
+.search_conditions span:hover{
   cursor:pointer;
+  color: #02b0d9;
 }
 .search_conditions_inner{
   display:none;
@@ -427,6 +426,12 @@ a:hover{
 }
 .subject_inner{
   display:none;
+}
+.reset_btn{
+  color: #02b0d9;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 
 /* スクール予約確認 */
