@@ -340,6 +340,10 @@ a:hover{
   top: 60%;
   transform: translate(-50%, -60%) rotate(-45deg);
 }
+/* #main_categories dt.active::after{
+  top: 60%;
+  transform: translate(-50%, -60%) rotate(-45deg);
+} */
 .category_list{
   display: none;
   /* background-color: #002972;
@@ -391,6 +395,24 @@ a:hover{
   margin: 0 0 20px 20px;
   padding: 15px 15px 20px;
 }
+.search_wrap {
+  width: 70%;
+}
+.free_word {
+  border-radius: 5px;
+  border: 1px solid #dee2e6;
+  width: 100%;
+  height: 40px;
+  margin: 10px 0;
+}
+.select {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.label {
+  font-size: 15px;
+}
 .search_conditions span{
   cursor:pointer;
 }
@@ -432,12 +454,8 @@ a:hover{
   height: 95%;
   margin: auto;
 }
-/* ユーザー検索 */
-.free_word{
-  border-radius: 5px;
-  border: 1px solid #dee2e6;
-  
-}
+
+
 /*
 スクール予約確認のカレンダーの大きさ
 いいね、コメント右寄りに
