@@ -1,5 +1,6 @@
 $(function () {
   $('.search_conditions').click(function () {
+    $('.search_conditions').toggleClass('is-open');
     $('.search_conditions_inner').slideToggle();
   });
 

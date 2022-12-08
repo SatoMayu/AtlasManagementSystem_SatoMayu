@@ -31,6 +31,9 @@ a:hover{
   background-color:#03AAD2;
   font-weight:bold;
 }
+.sidebar p{
+  margin-bottom: 1.5rem;
+}
 .main-container{
   width:100%;
 }
@@ -355,6 +358,12 @@ a:hover{
 }
 
 /* ユーザー検索 */
+.search_container {
+  display: block;
+}
+.user_search {
+  margin: 0 6rem;
+}
 .search_content{
   grid-template-columns: 80% 20%;
   column-gap: 20px;
@@ -408,12 +417,30 @@ a:hover{
   margin-top: 0.5rem;
   margin-bottom: 0;
 }
-.addition{
-  margin-top: 0.5rem;
+.addition {
+  margin-top: 1rem;
 }
-.search_conditions span:hover{
+.search_conditions::after {
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  content: "";
+  display: block;
+  top: 27%;
+  left: 40%;
+  width: 15px;
+  height: 15px;
+  transform: translate(-50%, -40%) rotate(135deg);
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  transition: 0.3s ease;
+}
+.search_conditions.is-open::after {
+  top: 29%;
+  transform: translate(-50%, -60%) rotate(-45deg);
+}
+.search_conditions:hover{
   cursor:pointer;
-  color: #02b0d9;
 }
 .search_conditions_inner{
   display:none;
@@ -433,7 +460,27 @@ a:hover{
   border: none;
   background-color: transparent;
 }
+.user-search_btn {
+  width: 100%;
+  color: #FFF;
+  background-color: #33c0e0;
+  border: none;
+  padding: 10px 20px;
+  margin: 20px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
+.user-search_btn:hover {
+  background-color: #02b0d9;
+  transition-duration: .5s;
+}
+
+.user-search_btn:focus {
+  outline: none;
+  /* box-shadow: 0 0 0 4px #cbd6ee; */
+  transition-duration: 0s;
+}
 /* スクール予約確認 */
 .part_btn{
   border: none;
